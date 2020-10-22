@@ -32,7 +32,8 @@
     "format": "prettier --write src/*.js",
     "test": "react-scripts test",
     "coverage": "yarn run test --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:ci": "yarn run lint && yarn run coverage"
   },
   "browserslist": {
     "production": [
