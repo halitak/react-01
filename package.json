@@ -16,8 +16,18 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:eslint": "eslint src/*.js",
-    "lint:css": "stylelint src/*.css"
+    "lint:stylelint": "stylelint src/*.css",
+    "lint": "yarn run lint:eslint && yarn run lint:stylelint",
+    "lint-staged": "lint-staged",
+    "format": "prettier --write src/*.js"
   },
+  "lint-staged": {
+    "*.js": [
+      "yarn run format",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint-staged",
   "eslintConfig": {
     "extends": "react-app"
   },
