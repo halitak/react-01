@@ -10,26 +10,29 @@
     "react-dom": "^17.0.0",
     "react-scripts": "3.4.4"
   },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
+    "eslint": "^7.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "prettier": "^2.1.2",
+    "react-test-renderer": "^17.0.1",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "lint:eslint": "eslint src/*.js",
     "lint:stylelint": "stylelint src/*.css",
     "lint": "yarn run lint:eslint && yarn run lint:stylelint",
     "lint-staged": "lint-staged",
-    "format": "prettier --write src/*.js"
-  },
-  "lint-staged": {
-    "*.js": [
-      "yarn run format",
-      "git add"
-    ]
-  },
-  "pre-commit": "lint-staged",
-  "eslintConfig": {
-    "extends": "react-app"
+    "format": "prettier --write src/*.js",
+    "test": "react-scripts test",
+    "coverage": "yarn run test --coverage",
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -43,12 +46,31 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "eslint": "^7.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
-    "prettier": "^2.1.2",
-    "stylelint": "^13.7.2",
-    "stylelint-config-standard": "^20.0.0"
+  "lint-staged": {
+    "*.js": [
+      "yarn run format",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint-staged",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }
