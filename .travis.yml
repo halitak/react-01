@@ -20,5 +20,5 @@ before_deploy:
 deploy:
   provider: surge
   project: ./build/
-  domain: example.surge.sh
+  domain: react-01.surge.sh
   skip_cleanup: true
