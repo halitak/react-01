@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className="App"
 >
   <h1>
-    Hello World asdasd
+    Hello World
   </h1>
 </div>
 `;
