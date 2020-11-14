@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World</h1>
-      <h3>serve on surge.sh</h3>
+      <h3>serve on vercel</h3>
     </div>
   );
 }

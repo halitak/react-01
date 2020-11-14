@@ -15,8 +15,8 @@ after_success:
   - eval "$(ssh-agent -s)" #start the ssh agent
   - chmod 600 .travis/deploy_key.pem # this key should have push access
   - ssh-add .travis/deploy_key.pem
-  - git remote add deploy https://github.com/halitak/react-01
-  - git push deploy
+  - git remote add react-01 https://github.com/halitak/react-01
+  - git push react-01 test
 
 before_deploy:
   - yarn run build
