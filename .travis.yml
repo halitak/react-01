@@ -12,13 +12,12 @@ script:
 
 after_success:
   - codecov
+  - eval "$(ssh-agent -s)" #start the ssh agent
+  - chmod 600 .travis/deploy_key.pem # this key should have push access
+  - ssh-add .travis/deploy_key.pem
+  - git remote add deploy https://github.com/halitak/react-01
+  - git push deploy
 
 before_deploy:
   - yarn run build
   - cp ./build/index.html ./build/200.html
-
-deploy:
-  provider: surge
-  project: ./build/
-  domain: react-01.surge.sh
-  skip_cleanup: true
